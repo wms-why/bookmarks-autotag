@@ -35,7 +35,7 @@ jobs:
         prerelease: false
 
     - name: Zip build files
-      run: zip -r build.zip dist
+      run: zip -r build.zip build/chrome-mv3-prod
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
