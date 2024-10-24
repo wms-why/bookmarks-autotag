@@ -18,7 +18,10 @@ jobs:
         node-version: '20'
 
     - name: Install dependencies
-      run: yarn install
+      run: npm ci
+
+    - name: List project structure
+      run: tree -L 3
 
     - name: Build project
       run: npm run build

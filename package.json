@@ -32,7 +32,7 @@
       "https://*/*"
     ],
     "chrome_url_overrides": {
-      "bookmarks": "./tabs/bookmarks.html"
+      "bookmarks": "tabs/bookmarks.html"
     },
     "permissions": [
       "bookmarks"
