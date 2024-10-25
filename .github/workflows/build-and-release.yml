@@ -17,14 +17,6 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install dependencies
-      run: yarn install
-
-
-    - name: Build project
-      run: npm run package
-
-
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -37,7 +29,7 @@ jobs:
         prerelease: false
 
     - name: Zip build files
-      run: zip -r build.zip build
+      run: zip -r build.zip build/chrome-mv3-prod
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
