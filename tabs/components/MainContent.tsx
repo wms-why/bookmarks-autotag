@@ -1,6 +1,6 @@
 import React from "react";
-import { SearchIcon } from "./components/Icons";
-import BookmarkCard from "./components/BookmarkCard";
+import { SearchIcon } from "./Icons";
+import BookmarkCard from "./BookmarkCard";
 import {
   MainContent as StyledMainContent,
   Breadcrumb,
@@ -13,7 +13,7 @@ import {
   FolderCardList,
   FolderCard,
   Divider
-} from "./components/StyledComponents";
+} from "./StyledComponents";
 
 const MainContent = ({
   currentFolder,

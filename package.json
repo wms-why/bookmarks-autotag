@@ -1,7 +1,7 @@
 {
   "name": "bookmarks-artist",
   "displayName": "Bookmarks Artist",
-  "version": "0.0.1",
+  "version": "0.2.2",
   "description": "A bookmarks manager for Chrome",
   "author": "liujuntao123",
   "scripts": {

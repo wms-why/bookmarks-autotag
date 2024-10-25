@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Sidebar from "../src/components/Sidebar";
-import MainContent from "../src/MainContent";
+import Sidebar from "./components/Sidebar";
+import MainContent from "./components/MainContent";
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const ContentWrapper = styled.div`
   
 `;
 
-function BookmarksPage() {
+function bookmarks() {
   const [bookmarks, setBookmarks] = useState([]);
   const [currentFolder, setCurrentFolder] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -87,4 +87,4 @@ function BookmarksPage() {
   );
 }
 
-export default BookmarksPage;
+export default bookmarks;
