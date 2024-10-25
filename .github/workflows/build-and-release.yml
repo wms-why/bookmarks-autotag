@@ -4,9 +4,6 @@ on:
   push:
     tags:
       - 'v*'
-      
-permissions:
-  contents: write
 
 jobs:
   build-and-release:
@@ -19,12 +16,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '18'
-
-    - name: Install dependencies
-      run: yarn install
-
-    - name: Build project
-      run: npm run build
 
     - name: Create Release
       id: create_release
