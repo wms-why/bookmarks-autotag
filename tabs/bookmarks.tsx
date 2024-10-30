@@ -42,14 +42,37 @@ function bookmarks() {
 
   const handleFolderClick = (folder) => {
     setCurrentFolder(folder);
+    toggleFolder(folder.id, true);
   };
 
-  const toggleFolder = (folderId) => {
-    setExpandedFolders((prev) => ({
-      ...prev,
-      [folderId]: !prev[folderId],
-    }));
-    // Find the clicked folder and set it as the current folder
+  const toggleFolder = (folderId, forceExpand = false) => {
+    // Find all parent folder IDs
+    const findParentFolders = (nodes, targetId, parents = []) => {
+      for (let node of nodes) {
+        if (node.children) {
+          if (node.children.some(child => child.id === targetId)) {
+            parents.push(node.id);
+          }
+          findParentFolders(node.children, targetId, parents);
+        }
+      }
+      return parents;
+    };
+  
+    const parentFolders = findParentFolders(sidebarFolders, folderId);
+  
+    setExpandedFolders((prev) => {
+      const newState = { ...prev };
+      // Expand all parent folders
+      parentFolders.forEach(parentId => {
+        newState[parentId] = true;
+      });
+      // Set the target folder's state
+      newState[folderId] = forceExpand ? true : !prev[folderId];
+      return newState;
+    });
+      
+    // ... existing findFolder code ...
     const findFolder = (nodes) => {
       for (let node of nodes) {
         if (node.id === folderId) {
@@ -80,7 +103,7 @@ function bookmarks() {
         setSearchTerm={setSearchTerm}
         bookmarks={bookmarks}
         isLoading={isLoading}
-        setCurrentFolder={setCurrentFolder}
+        setCurrentFolder={handleFolderClick}
         />
       </ContentWrapper>
     </Container>
